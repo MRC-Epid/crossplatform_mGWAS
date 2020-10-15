@@ -1,0 +1,46 @@
+#General setup
+SCHEME SAMPLESIZE
+SEPARATOR TAB
+COLUMNCOUNTING LENIENT
+GENOMICCONTROL OFF
+AVERAGEFREQ ON
+MINMAXFREQ ON
+USESTRAND OFF
+ 
+#process fenland
+MARKER MarkerName
+ALLELE Allele1 Allele2
+EFFECT Effect
+WEIGHTLABEL n
+PVALUELABEL P-value
+FREQ Freq1
+ 
+PROCESSFILE /data/genetics/GWA/metabolomics/biocrates_fenland/02_ma_fenland/meta_analysis/genomic_control_ma/ma_genomic_control_OFF_out_bior_0061.txt.gz
+ 
+#process interval, twins uk and KORA
+MARKER markername
+ALLELE ea oa
+EFFECT beta
+WEIGHTLABEL n
+PVALUELABEL p
+FREQ eaf
+
+PROCESSFILE /genetics/data/GWA/metabolomics/biocrates_fenland/03_ma_overall/pvalues0/M32412_INTERVAL.txt.gz
+PROCESSFILE /data/genetics/GWA/metabolomics/public_data/metabolon_soranzo/formattingMA/kora_M32412_formatted.txt
+PROCESSFILE /genetics/data/GWA/metabolomics/biocrates_fenland/03_ma_overall/pvalues0/M32412_twinsUK.txt.gz
+ 
+#process epicn
+MARKER MARKERNAME
+ALLELE EFFECT_ALLELE NON_EFFECT_ALLELE
+EFFECT BETA
+WEIGHTLABEL N
+PVALUELABEL PVAL
+FREQ EAF
+ 
+PROCESSFILE /genetics/data/GWA/metabolomics/biocrates_fenland/03_ma_overall/pvalues0/M32412_EPICN.txt.gz
+ 
+ 
+OUTFILE /data/genetics/GWA/metabolomics/biocrates_fenland/03_ma_overall/metan_results/bior_006_pval  .txt
+ANALYZE HETEROGENEITY
+CLEAR
+QUIT
