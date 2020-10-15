@@ -1,0 +1,34 @@
+#General setup
+SCHEME SAMPLESIZE
+SEPARATOR TAB
+COLUMNCOUNTING LENIENT
+GENOMICCONTROL OFF
+AVERAGEFREQ ON
+MINMAXFREQ ON
+USESTRAND OFF
+ 
+#process fenland
+MARKER MarkerName
+ALLELE Allele1 Allele2
+EFFECT Effect
+WEIGHTLABEL n
+PVALUELABEL P-value
+FREQ Freq1
+ 
+PROCESSFILE /data/genetics/GWA/metabolomics/biocrates_fenland/02_ma_fenland/meta_analysis/genomic_control_ma/ma_genomic_control_OFF_out_bior_1061.txt.gz
+ 
+#process draisma
+MARKER markername
+ALLELE ea oa
+EFFECT beta
+WEIGHTLABEL n
+PVALUELABEL p
+FREQ eaf
+ 
+PROCESSFILE /data/genetics/GWA/metabolomics/public_data/biocrates_p150/formatting_MA_Biocrates/result_files/bior_1061_Draisma.txt
+ 
+ 
+OUTFILE /data/genetics/GWA/metabolomics/biocrates_fenland/03_ma_overall/metan_results/bior_106_pval  .txt
+ANALYZE HETEROGENEITY
+CLEAR
+QUIT
